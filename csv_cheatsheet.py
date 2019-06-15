@@ -4,8 +4,8 @@ from collections import namedtuple
 
 class FileWrapper:
 
-    def __init__(self):
-        self._file_path = "csv_files/mock_data.csv"
+    def __init__(self, file_path):
+        self._file_path = file_path
 
         with open(self._file_path, 'r') as filename:
             reader = csv.reader(filename)
@@ -23,7 +23,7 @@ class FileWrapper:
 
 if __name__ == '__main__':
 
-    fw = FileWrapper()
+    fw = FileWrapper("csv_files/mock_data.csv")
 
     # Getting a list of the headers of the file
     print (fw.get_headers())
