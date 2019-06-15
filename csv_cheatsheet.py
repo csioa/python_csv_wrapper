@@ -9,16 +9,16 @@ class FileWrapper:
 
         with open(self._file_path, 'r') as filename:
             reader = csv.reader(filename)
-            self._Profile = namedtuple('Profile', ' '.join(next(reader, None)))
+            self._Row = namedtuple('Row', ' '.join(next(reader, None)))
 
     def file_to_namedtuple(self):
 
         with open(self._file_path, 'r') as filename:
             reader = csv.reader(filename)
-            return map(self._Profile._make, reader)
+            return map(self._Row._make, reader)
 
     def get_headers(self):
-        return list(self._Profile._fields)
+        return list(self._Row._fields)
 
 
 if __name__ == '__main__':
