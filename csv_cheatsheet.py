@@ -17,12 +17,16 @@ class FileWrapper:
             reader = csv.reader(filename)
             return map(self._Profile._make, reader)
 
+    def get_headers(self):
+        return list(self._Profile._fields)
+
 
 if __name__ == '__main__':
 
-    file_wrapper = FileWrapper()
+    fw = FileWrapper()
+
+    # Getting a list of the headers of the file
+    print (fw.get_headers())
 
     # Printing first row of CSV file as sample namedtuple
-    print file_wrapper.file_to_namedtuple()[0]
-
-    
+    print (fw.file_to_namedtuple()[0])
